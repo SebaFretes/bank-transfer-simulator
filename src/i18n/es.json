@@ -1,0 +1,39 @@
+{
+  "transfer": {
+    "title": "Simulador de Transferencias",
+    "from": "Cuenta Origen",
+    "to": "Cuenta Destino",
+    "amount": "Monto",
+    "confirm": "Confirmar Transferencia",
+    "success": "Transferencia realizada con éxito",
+    "errors": {
+      "sameAccount": "Las cuentas de origen y destino deben ser distintas",
+      "insufficientFunds": "Fondos insuficientes",
+      "invalidAmount": "Ingresá un monto válido"
+    }
+  },
+  "history": {
+    "title": "Historial de Transferencias",
+    "filterFrom": "Filtrar por origen",
+    "filterTo": "Filtrar por destino",
+    "filterAmount": "Filtrar por monto",
+    "total": "Total transferido hoy",
+    "noTransfers": "Sin transferencias aún"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalTransactions": "Total de Transacciones",
+    "totalTransferred": "Total Transferido",
+    "topAccount": "Cuenta más activa",
+    "cryptoMarket": "Mercado Cripto"
+  },
+  "nav": {
+    "transfer": "Transferencia",
+    "history": "Historial",
+    "dashboard": "Dashboard"
+  },
+  "common": {
+    "darkMode": "Modo Oscuro",
+    "language": "Idioma"
+  }
+}

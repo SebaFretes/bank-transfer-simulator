@@ -1,0 +1,39 @@
+{
+  "transfer": {
+    "title": "Transfer Simulator",
+    "from": "From Account",
+    "to": "To Account",
+    "amount": "Amount",
+    "confirm": "Confirm Transfer",
+    "success": "Transfer completed successfully",
+    "errors": {
+      "sameAccount": "Origin and destination accounts must be different",
+      "insufficientFunds": "Insufficient funds",
+      "invalidAmount": "Enter a valid amount"
+    }
+  },
+  "history": {
+    "title": "Transfer History",
+    "filterFrom": "Filter by origin",
+    "filterTo": "Filter by destination",
+    "filterAmount": "Filter by amount",
+    "total": "Total transferred today",
+    "noTransfers": "No transfers yet"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalTransactions": "Total Transactions",
+    "totalTransferred": "Total Transferred",
+    "topAccount": "Most Active Account",
+    "cryptoMarket": "Crypto Market"
+  },
+  "nav": {
+    "transfer": "Transfer",
+    "history": "History",
+    "dashboard": "Dashboard"
+  },
+  "common": {
+    "darkMode": "Dark Mode",
+    "language": "Language"
+  }
+}
