@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "Juan Pérez",
+    "type": "checking",
+    "balance": 15000,
+    "photo": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "id": "2",
+    "name": "María García",
+    "type": "savings",
+    "balance": 32000,
+    "photo": "https://randomuser.me/api/portraits/women/2.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Carlos López",
+    "type": "checking",
+    "balance": 8500,
+    "photo": "https://randomuser.me/api/portraits/men/3.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Ana Martínez",
+    "type": "savings",
+    "balance": 54000,
+    "photo": "https://randomuser.me/api/portraits/women/4.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Luis Rodríguez",
+    "type": "checking",
+    "balance": 12300,
+    "photo": "https://randomuser.me/api/portraits/men/5.jpg"
+  }
+]
