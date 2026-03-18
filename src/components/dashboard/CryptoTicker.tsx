@@ -7,16 +7,30 @@ const LABELS: Record<string, string> = {
   'BINANCE:BNBUSDT': 'BNB',
 }
 
+const LOGOS: Record<string, string> = {
+  'BINANCE:BTCUSDT': 'https://assets.coingecko.com/coins/images/1/small/bitcoin.png',
+  'BINANCE:ETHUSDT': 'https://assets.coingecko.com/coins/images/279/small/ethereum.png',
+  'BINANCE:BNBUSDT': 'https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png',
+}
+
 export default function CryptoTicker() {
   const { t } = useTranslation()
   const { trades, connected } = useCryptoWS()
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow p-6">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-bold text-lg">{t('dashboard.cryptoMarket')}</h3>
-        <span className={`text-xs px-2 py-1 rounded-full ${connected ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-          {connected ? 'Live' : 'Disconnected'}
+    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm">
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+          {t('dashboard.cryptoMarket')}
+        </h3>
+        <span
+          className={`text-xs px-2.5 py-1 rounded-full font-medium ${
+            connected
+              ? 'bg-green-500/10 text-green-500 border border-green-500/20'
+              : 'bg-red-500/10 text-red-500 border border-red-500/20'
+          }`}
+        >
+          {connected ? '● Live' : '○ Disconnected'}
         </span>
       </div>
 
@@ -24,15 +38,23 @@ export default function CryptoTicker() {
         {Object.entries(LABELS).map(([symbol, label]) => {
           const trade = trades[symbol]
           return (
-            <div key={symbol} className="flex items-center justify-between border border-gray-100 dark:border-gray-700 rounded-xl px-4 py-3">
-              <span className="font-semibold">{label}</span>
+            <div
+              key={symbol}
+              className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl px-5 py-4"
+            >
+              <div className="flex items-center gap-3">
+                <img src={LOGOS[symbol]} className="w-8 h-8 rounded-lg" alt={label} />
+                <span className="font-semibold text-gray-900 dark:text-white">{label}</span>
+              </div>
               {trade ? (
                 <div className="text-right">
-                  <p className="font-bold text-blue-600">${trade.price.toLocaleString()}</p>
+                  <p className="font-bold text-gray-900 dark:text-white">
+                    ${trade.price.toLocaleString()}
+                  </p>
                   <p className="text-xs text-gray-400">vol: {trade.volume.toFixed(4)}</p>
                 </div>
               ) : (
-                <span className="text-xs text-gray-400">Waiting...</span>
+                <span className="text-xs text-gray-400">Esperando...</span>
               )}
             </div>
           )
