@@ -28,12 +28,12 @@ export default function TransferHistory() {
   const total = filtered.reduce((sum, tr) => sum + tr.amount, 0)
 
   return (
-    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-xl">
+    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 shadow-xl">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
         {t('history.title')}
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 gap-3 mb-6">
         {[
           { value: filterFrom, setter: setFilterFrom, placeholder: t('history.filterFrom') },
           { value: filterTo, setter: setFilterTo, placeholder: t('history.filterTo') },
@@ -50,7 +50,7 @@ export default function TransferHistory() {
             placeholder={placeholder}
             value={value}
             onChange={(e) => setter(e.target.value)}
-            className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+            className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#6B21FF] focus:ring-1 focus:ring-[#6B21FF] transition-all"
           />
         ))}
       </div>
@@ -64,23 +64,23 @@ export default function TransferHistory() {
           {filtered.map((tr) => (
             <div
               key={tr.id}
-              className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-5 py-4 hover:border-blue-500/50 transition-all"
+              className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-5 py-4 hover:border-[#6B21FF]/50 transition-all"
             >
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-2">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="flex shrink-0 -space-x-2">
                   <img
                     src={getAccountPhoto(tr.fromAccountId)}
-                    className="w-9 h-9 rounded-full ring-2 ring-white dark:ring-gray-900"
+                    className="w-8 h-8 rounded-full ring-2 ring-white dark:ring-gray-900"
                   />
                   <img
                     src={getAccountPhoto(tr.toAccountId)}
-                    className="w-9 h-9 rounded-full ring-2 ring-white dark:ring-gray-900"
+                    className="w-8 h-8 rounded-full ring-2 ring-white dark:ring-gray-900"
                   />
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
                     {getAccountName(tr.fromAccountId)}
-                    <span className="text-gray-400 font-normal mx-2">→</span>
+                    <span className="text-gray-400 font-normal mx-1">→</span>
                     {getAccountName(tr.toAccountId)}
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">
@@ -88,8 +88,8 @@ export default function TransferHistory() {
                   </p>
                 </div>
               </div>
-              <div className="text-right">
-                <p className="font-bold text-blue-500">${tr.amount.toLocaleString()}</p>
+              <div className="shrink-0 ml-4 text-right">
+                <p className="font-bold text-[#6B21FF]">${tr.amount.toLocaleString()}</p>
               </div>
             </div>
           ))}
@@ -101,7 +101,7 @@ export default function TransferHistory() {
           <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
             {t('history.total')}
           </span>
-          <span className="text-xl font-bold text-blue-500">${total.toLocaleString()}</span>
+          <span className="text-xl font-bold text-[#6B21FF]">${total.toLocaleString()}</span>
         </div>
       )}
     </div>
