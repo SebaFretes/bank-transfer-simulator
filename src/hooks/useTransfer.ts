@@ -2,7 +2,7 @@ import { useTransferStore } from '../store/transferStore'
 import { useAccountStore } from '../store/accountStore'
 import type { Transfer } from '../types'
 import { useTranslation } from 'react-i18next'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import { v4 as uuidv4 } from 'uuid'
 
 export function useTransfer() {

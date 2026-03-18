@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Toaster } from 'react-hot-toast'
 import { useState, useEffect } from 'react'
 import { Sun, Moon } from 'lucide-react'
 import TransferPage from './pages/TransferPage'
 import HistoryPage from './pages/HistoryPage'
 import DashboardPage from './pages/DashboardPage'
 import zetaLogo from './assets/zetasuite_logo.jpeg'
+import { Toaster } from './components/ui/sonner'
 
 export default function App() {
   const { t, i18n } = useTranslation()
@@ -101,16 +101,7 @@ export default function App() {
           </Routes>
         </main>
 
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            style: {
-              background: '#1f2937',
-              color: '#f9fafb',
-              border: '1px solid #374151',
-            },
-          }}
-        />
+        <Toaster position="bottom-right" richColors closeButton />
       </div>
     </BrowserRouter>
   )
