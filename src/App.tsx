@@ -1,12 +1,18 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Toaster } from 'react-hot-toast'
+import { useState, useEffect } from 'react'
 import TransferPage from './pages/TransferPage'
 import HistoryPage from './pages/HistoryPage'
 import DashboardPage from './pages/DashboardPage'
 
 export default function App() {
   const { t, i18n } = useTranslation()
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+  }, [dark])
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
@@ -42,12 +48,20 @@ export default function App() {
               {t('nav.dashboard')}
             </NavLink>
           </div>
-          <button
-            onClick={toggleLanguage}
-            className="text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600"
-          >
-            {i18n.language === 'es' ? 'EN' : 'ES'}
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className="text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600"
+            >
+              {i18n.language === 'es' ? 'EN' : 'ES'}
+            </button>
+            <button
+              onClick={() => setDark(!dark)}
+              className="text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600"
+            >
+              {dark ? '☀️' : '🌙'}
+            </button>
+          </div>
         </nav>
 
         <main className="max-w-5xl mx-auto px-4 py-8">
