@@ -6,6 +6,7 @@ import TransferPage from './pages/TransferPage'
 import HistoryPage from './pages/HistoryPage'
 import DashboardPage from './pages/DashboardPage'
 import zetaLogo from '../src/assets/zetasuite_logo.jpeg'
+import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
   const { t, i18n } = useTranslation()
@@ -63,9 +64,9 @@ export default function App() {
               </button>
               <button
                 onClick={() => setDark(!dark)}
-                className="text-sm px-3 py-1.5 rounded-lg border border-gray-700 text-gray-400 hover:text-white hover:border-gray-500 transition-all"
+                className="p-2 rounded-lg border border-gray-700 text-gray-400 hover:text-white hover:border-gray-500 transition-all"
               >
-                {dark ? '☀️' : '🌙'}
+                {dark ? <Sun size={16} /> : <Moon size={16} />}
               </button>
             </div>
           </div>
